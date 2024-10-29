@@ -1,5 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 
+using System;
+
 namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
@@ -128,9 +130,10 @@ namespace SingleResponsibilityPrinciple
             string datadirConnectString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;";
             // This users the Azure connection string
             string azureConnectString = @"Data Source=cis3115-server.database.windows.net;Initial Catalog=CIS3115;User ID=cis3115;Password=Saints4SQL;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-           
+
+            string allieConnectString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Users\alopez2\Documents\tradedatabase.mdf; Integrated Security = True; Connect Timeout = 30";
             // Change the connection string used to match the one you want
-            using (var connection = new SqlConnection(genericConnectString))
+            using (var connection = new SqlConnection(allieConnectString))
             {
                 LogMessage("INFO:Going to open database connection");
                 connection.Open();
